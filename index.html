@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARICH - لعبة الذكاء والأسئلة</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- الرأس -->
+        <header class="header">
+            <div class="logo">
+                <h1>🧠 ARICH</h1>
+                <p>لعبة الذكاء والأسئلة الصعبة</p>
+            </div>
+            <div class="theme-toggle">
+                <button id="themeBtn" class="theme-btn">🌙</button>
+            </div>
+        </header>
+
+        <!-- شاشة البداية -->
+        <div id="startScreen" class="screen active">
+            <div class="start-content">
+                <h2>مرحباً بك في ARICH</h2>
+                <p>اختبر ذكاءك مع أسئلة صعبة وتحديات ذهنية</p>
+                
+                <div class="difficulty-selector">
+                    <h3>اختر مستوى الصعوبة:</h3>
+                    <div class="buttons">
+                        <button class="difficulty-btn" data-level="easy">
+                            <span class="icon">🟢</span>
+                            سهل
+                        </button>
+                        <button class="difficulty-btn" data-level="medium">
+                            <span class="icon">🟡</span>
+                            متوسط
+                        </button>
+                        <button class="difficulty-btn" data-level="hard">
+                            <span class="icon">🔴</span>
+                            صعب
+                        </button>
+                    </div>
+                </div>
+
+                <button id="startBtn" class="btn btn-primary">ابدأ اللعبة</button>
+            </div>
+        </div>
+
+        <!-- شاشة اللعبة -->
+        <div id="gameScreen" class="screen">
+            <div class="game-header">
+                <div class="progress">
+                    <span id="currentQuestion">1</span> / <span id="totalQuestions">10</span>
+                </div>
+                <div class="score">
+                    النقاط: <span id="score">0</span>
+                </div>
+                <div class="timer">
+                    <span id="timer">30</span>s
+                </div>
+            </div>
+
+            <div class="question-container">
+                <h2 id="question" class="question"></h2>
+                
+                <div id="optionsContainer" class="options-grid">
+                    <!-- الخيارات يتم إضافتها ديناميكياً -->
+                </div>
+            </div>
+
+            <div class="game-footer">
+                <button id="nextBtn" class="btn btn-secondary" disabled>السؤال التالي</button>
+                <button id="skipBtn" class="btn btn-danger">تجاوز</button>
+            </div>
+        </div>
+
+        <!-- شاشة النتائج -->
+        <div id="resultsScreen" class="screen">
+            <div class="results-content">
+                <h2>انتهت اللعبة! 🎉</h2>
+                
+                <div class="score-display">
+                    <div class="big-score">
+                        <span id="finalScore">0</span>
+                        <span class="max-score">/ 100</span>
+                    </div>
+                    <div class="score-message" id="scoreMessage"></div>
+                </div>
+
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-label">الإجابات الصحيحة:</span>
+                        <span class="stat-value" id="correctAnswers">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">الإجابات الخاطئة:</span>
+                        <span class="stat-value" id="wrongAnswers">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">المتخطاة:</span>
+                        <span class="stat-value" id="skippedAnswers">0</span>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button id="retryBtn" class="btn btn-primary">لعبة جديدة</button>
+                    <button id="homeBtn" class="btn btn-secondary">الرئيسية</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
